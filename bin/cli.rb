@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
-require './hangman.rb'
+require './lib/hangman.rb'
 
 def pick_random_word
 	word = ''
@@ -24,7 +24,7 @@ def display_game(game)
 	puts word.split('').zip((' '*(word.length - 1)).split('')).flatten.join
 	puts "#{game.guess_left} guess is left"
 	print 'Guess a letter: '
-end	
+end
 
 def display_end(game)
 	divider
@@ -33,7 +33,7 @@ def display_end(game)
 end
 
 def main
-	game = Hangman.new(pick_random_word)
+	game = Hangman::Game.new(pick_random_word)
 
 	begin
 		display_game(game)
